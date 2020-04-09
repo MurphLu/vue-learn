@@ -24,7 +24,10 @@
       </div>
       <div class="form-group">
         <label for="exampleFormControlSelect2">Example multiple select</label>
-        <select class="form-control" id="exampleFormControlSelect2" v-model="user.favoriteColor" @select="selectFavoriteColor">
+        <select class="form-control" id="exampleFormControlSelect2" v-model="user.favoriteColor" 
+          @change="selectFavoriteColor"
+          @keyup.esc="clear"
+        >
           <option disabled selected value="">请选择</option>
           <option v-for="color in colors" :key="color" v-bind:value="color">{{ color }}</option>
         </select>
@@ -47,13 +50,17 @@ export default {
         favoriteColor:"",
       },
       colors: [
-        "red", "blue", "yellow", "green", "dark"
+        "red", "blue", "yellow", "green", "black"
       ]
     }
   },
   methods: {
     selectFavoriteColor() {
       console.log(this.user.favoriteColor)
+      $("#exampleFormControlSelect2").css("background-color", this.user.favoriteColor)
+    },
+    clear() {
+      this.user.favoriteColor = ""
       $("#exampleFormControlSelect2").css("background-color", this.user.favoriteColor)
     }
   }

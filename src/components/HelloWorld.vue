@@ -4,6 +4,7 @@
     <p class="h4 col-12 py-md-3">{{ msg }}</p>
     <PropertyBinding />
     <TwoWayBinding />
+    <ListDemo />
   </div>
 </template>
 
@@ -11,6 +12,7 @@
 
 import PropertyBinding from './001.PropertyBinding.vue'
 import TwoWayBinding from './002.TwoWayBinding.vue'
+import ListDemo from './003.ListDemo.vue'
 
 export default {
   name: 'HelloWorld',
@@ -19,7 +21,8 @@ export default {
   },
   components:{
     PropertyBinding,
-    TwoWayBinding
+    TwoWayBinding,
+    ListDemo
   }
 }
 </script>

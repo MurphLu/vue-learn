@@ -5,6 +5,7 @@
     <PropertyBinding />
     <TwoWayBinding />
     <ListDemo />
+    <Comp />
   </div>
 </template>
 
@@ -13,6 +14,7 @@
 import PropertyBinding from './001.PropertyBinding.vue'
 import TwoWayBinding from './002.TwoWayBinding.vue'
 import ListDemo from './003.ListDemo.vue'
+import Comp from './004.ComponentsLearn.vue'
 
 export default {
   name: 'HelloWorld',
@@ -22,7 +24,8 @@ export default {
   components:{
     PropertyBinding,
     TwoWayBinding,
-    ListDemo
+    ListDemo,
+    Comp
   }
 }
 </script>

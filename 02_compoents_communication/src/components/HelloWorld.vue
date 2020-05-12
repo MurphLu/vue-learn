@@ -17,7 +17,7 @@
 <script>
 
 import Hero from './Hero.vue'
-
+import { data } from '../shared'
 export default {
   name: 'HelloWorld',
   props: {
@@ -26,20 +26,7 @@ export default {
   data() {
     return {
       heros: [
-        {
-          "id": "1",
-          "name": "Hale",
-          "age": 12,
-        },
-        {
-          "id": "2",
-          "name": "Wall",
-          "age": 19,
-        },{
-          "id": "3",
-          "name": "Kabu",
-          "age": 15,
-        }
+        
       ],
       selectedItem: null
     }
@@ -55,8 +42,14 @@ export default {
       console.log(hero)
       this.selectedItem = null
       this.heros = []
+    },
+    async loadHeros() {
+      this.heros = await data.getHeros()
     }
   },
+  async created() {
+    await this.loadHeros()
+  }
 }
 </script>
 

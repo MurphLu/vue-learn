@@ -1,5 +1,3 @@
-
-module.exports = require('./logging-mixins.js')
-module.exports.call = function() {
-  console.log("aaaaaaaa")
-}
+export * from './logging-mixins.js'
+export * from './data.js'
+export * from './config.js'

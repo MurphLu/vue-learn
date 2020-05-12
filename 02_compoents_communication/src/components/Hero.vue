@@ -9,7 +9,8 @@
 </template>
 
 <script>
-import { lifecycleHooks, call} from '../shared'
+import { lifecycleHooks } from '../shared'
+
 export default {
   name:"Hero",
   props: {
@@ -26,7 +27,6 @@ export default {
   mixins: [lifecycleHooks],
   created() {
     console.log(this.componentName)
-    call()
   }
 }
 </script>

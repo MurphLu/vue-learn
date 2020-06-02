@@ -3,6 +3,7 @@
     <div class="card-body">
       <label class="card-title">hero</label>
       <label>{{ hero.name }}</label>
+      <button @click="back">back</button>
     </div>
   </div>
 </template>
@@ -28,6 +29,9 @@ export default {
   methods: {
     deleteHero(hero) {
       this.$emit('deleteHero', this.hero)
+    },
+    back() {
+      this.$router.push({ name: "Home" });
     }
   },
 

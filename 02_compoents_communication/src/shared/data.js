@@ -4,7 +4,7 @@ import { API } from './config.js';
 
 const getHeros = async function() {
   try {
-    const response = await axios.get(`${API}/heros.json`);
+    const response = await axios.get(`/${API}/heros.json`);
     const heroes = parseResponse(response);
     return heroes;
   } catch (error) {

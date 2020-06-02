@@ -6,7 +6,11 @@
       <div class="card-body">
         <label class="card-title">List Demo</label>
         <ul class="list-group">
-          <li v-for="item in heros" :key="item.id" class="list-group-item" :class="{active: selectedItem && item.id === selectedItem.id}" @click="itemSelect(item)">{{ item.name }}</li>
+          <!-- <li v-for="item in heros" :key="item.id" class="list-group-item" :class="{active: selectedItem && item.id === selectedItem.id}" @click="itemSelect(item)">{{ item.name }} -->
+            <router-link 
+              tag="li" v-for="item in heros" :key="item.id" class="list-group-item" :class="{active: selectedItem && item.id === selectedItem.id}" :to="{name: 'HeroDetail', params:{id: item.id}, props: {hero: item} }">{{ item.name }}</router-link>
+          <!-- </li> -->
+          
         </ul>
       </div>
     </div>

@@ -3,33 +3,47 @@
     <div class="card-body">
       <label class="card-title">hero</label>
       <label>{{ hero.name }}</label>
-      <button @click="deleteHero">delete</button>
     </div>
   </div>
 </template>
 
 <script>
 import { lifecycleHooks } from '../shared'
+import { data } from '../shared'
 
 export default {
-  name:"Hero",
+  name:"HeroDetail",
   props: {
-    id: {
+   id: {
       type: Number,
       default: 0
     }
-    // hero: {
-    //   type: Object,
-    //   default: () => {}
-    // },
+  },
+  data() {
+    return {
+      heros: [],
+      hero: undefined
+    }
   },
   methods: {
     deleteHero(hero) {
       this.$emit('deleteHero', this.hero)
     }
   },
+
   mixins: [lifecycleHooks],
-  created() {
+  async created() {
+    this.heros = await data.getHeros()
+    console.log(this.heros)
+    var id = this.id
+    var selectedhero = this.heros.filter(function(hero){
+      console.log(hero)
+      console.log(id)
+      return hero.id===id
+    })
+    if(selectedhero.length > 0) {
+      this.hero = selectedhero[0]
+    }
     console.log(this.componentName)
   }
 }

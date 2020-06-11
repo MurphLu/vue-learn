@@ -2,7 +2,7 @@ import * as axios from 'axios';
 
 import { API } from './config.js';
 
-const getHeros = async function() {
+const getHeroes = async function() {
   try {
     const response = await axios.get(`/${API}/heros.json`);
     const heroes = parseResponse(response);
@@ -28,6 +28,6 @@ const parseResponse = response => {
   return response.data;
 }
 
-export const data = {
-  getHeros
+export const dataService = {
+  getHeroes
 }

@@ -9,5 +9,14 @@ module.exports = {
         "windows.jQuery":"jquery"
       })
     ]
+  },
+  devServer: {
+    proxy: {
+      '/api' : {
+        target: 'http://localhost:8080',
+        ws: true,
+        changeOrigin: true
+      }
+    }
   }
 }
